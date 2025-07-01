@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Rumor Detector AI Agent",
+  "version": "1.1",
+ 
+  "description": "点击图标后激活谣言检测助手。",
+ 
+  "permissions": [
+    "scripting", 
+    "activeTab",
+    "tabs",
+    "storage"  
+  ],
+  
+  "host_permissions": ["<all_urls>"],
+
+  "action": {
+    "default_popup": "popup.html", 
+    "default_icon": "icon.png" 
+  },
+
+  "icons": {
+    "128": "icon.png"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["agent.js", "agent.css", "marked.min.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  }
+}
