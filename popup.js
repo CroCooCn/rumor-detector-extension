@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('popup.js 已加载');
   
   const button = document.getElementById('run');
+  const status = document.getElementById('status');
   if (button) {
     console.log('找到启动助手按钮');
     
@@ -30,8 +31,16 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('JS注入成功');
         
         console.log('所有文件注入完成');
+        if (status) {
+          status.textContent = '助手已启动';
+        }
+        button.disabled = true;
       } catch (error) {
         console.error('注入失败:', error);
+        if (status) {
+          status.textContent = '启动失败';
+          status.style.color = '#e74c3c';
+        }
       }
     });
   } else {
